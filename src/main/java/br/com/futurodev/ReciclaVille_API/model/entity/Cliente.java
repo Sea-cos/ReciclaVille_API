@@ -19,7 +19,7 @@ public class Cliente {
     @Column
     private String nome;
     @Column
-    private Long CNPJ;
+    private String CNPJ;
     @Column
     private String atividadeEconomica;
     @Column
