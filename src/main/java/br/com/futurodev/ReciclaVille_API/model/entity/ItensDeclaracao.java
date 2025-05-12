@@ -24,7 +24,6 @@ public class ItensDeclaracao {
     @JoinColumn(name = "declaracao_id")
     private Declaracao declaracao;
 
-
     @ManyToOne
     @JoinColumn(name = "material_id")
     private Material material;

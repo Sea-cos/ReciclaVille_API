@@ -19,5 +19,5 @@ public class Material {
     @Column
     private String nome;
     @Column
-    private Float percentualComprensacao;
+    private Float percentualCompensacao;
 }
