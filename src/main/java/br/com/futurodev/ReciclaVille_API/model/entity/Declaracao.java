@@ -41,16 +41,5 @@ public class Declaracao {
     @Builder.Default
     private List<ItensDeclaracao> itensDeclaracao = new ArrayList<>();
 
-    public void addItem(ItensDeclaracao item){
-        itensDeclaracao.add(item);
-        item.setDeclaracao(this);
-    }
-
-    public void removeItem(ItensDeclaracao item){
-        itensDeclaracao.add(item);
-        item.setDeclaracao(null);
-    }
-
-
 
 }
