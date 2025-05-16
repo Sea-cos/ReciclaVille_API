@@ -1,14 +1,14 @@
 package br.com.futurodev.ReciclaVille_API.model.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -22,6 +22,7 @@ public class ItensDeclaracao {
 
     @ManyToOne
     @JoinColumn(name = "declaracao_id")
+    @JsonBackReference  // para evitar serializar o objeto pai novamente
     private Declaracao declaracao;
 
     @ManyToOne

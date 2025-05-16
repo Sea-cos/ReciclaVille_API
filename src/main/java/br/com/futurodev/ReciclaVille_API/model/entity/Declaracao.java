@@ -1,18 +1,21 @@
 package br.com.futurodev.ReciclaVille_API.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table
+@Builder
 public class Declaracao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,6 +36,21 @@ public class Declaracao {
     private BigDecimal totalMateriais;
     @Column
     private BigDecimal totalCompensacao;
+    @OneToMany(mappedBy = "declaracao", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference  // controla a serialização do lado "pai"
+    @Builder.Default
+    private List<ItensDeclaracao> itensDeclaracao = new ArrayList<>();
+
+    public void addItem(ItensDeclaracao item){
+        itensDeclaracao.add(item);
+        item.setDeclaracao(this);
+    }
+
+    public void removeItem(ItensDeclaracao item){
+        itensDeclaracao.add(item);
+        item.setDeclaracao(null);
+    }
+
 
 
 }

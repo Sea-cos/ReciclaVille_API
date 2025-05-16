@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,5 +21,5 @@ public class Material {
     @Column
     private String nome;
     @Column
-    private Float percentualCompensacao;
+    private BigDecimal percentualCompensacao;
 }
